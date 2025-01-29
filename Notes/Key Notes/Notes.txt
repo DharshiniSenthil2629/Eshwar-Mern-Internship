@@ -1,0 +1,763 @@
+1.
+  {
+    _id: 3,  
+    Accnumber: "1029",
+    Branch: "Singnallur",
+    BankName: "Indian",
+    IFSCCode: "5678SAI",
+    CurrentBalance: 40000,
+    Acctype: "Current",
+    OverDraft: "Yes"
+  },
+  {
+    _id: 4,
+    Accnumber: "3847",
+    Branch: "Rananathapuram",
+    BankName: "Canara",
+    IFSCCode: "5678LOKI",
+    CurrentBalance: 30000,
+    Acctype: "Saving",
+    OverDraft: "No"
+  },
+  {
+    _id: 5,
+    Accnumber: "4738",
+    Branch: "America",
+    BankName: "Indian",
+    IFSCCode: "5678", 
+    CurrentBalance: 30000,
+    Acctype: "Current",
+    OverDraft: "Yes"
+  }
+
+2.db.CustomerAccount.insertMany([
+  {
+    _id: 2,  
+    Accnumber: "5678",
+    Branch: "New Bus stand",
+    BankName: "Canara",
+    IFSCCode: "5678GAYA",
+    CurrentBalance: 20000,
+    Acctype: "Saving",
+    OverDraft: "No"
+  },
+  {
+    _id: 3,  
+    Accnumber: "1029",
+    Branch: "Singnallur",
+    BankName: "Indian",
+    IFSCCode: "5678SAI",
+    CurrentBalance: 40000,
+    Acctype: "Current",
+    OverDraft: "Yes"
+  },
+  {
+    _id: 4,  
+    Accnumber: "3847",
+    Branch: "Rananathapuram",
+    BankName: "Canara",
+    IFSCCode: "5678LOKI",
+    CurrentBalance: 30000,
+    Acctype: "Saving",
+    OverDraft: "No"
+  },
+  {
+    _id: 5,  
+    Accnumber: "4738",
+    Branch: "America",
+    BankName: "Indian",
+    IFSCCode: "5678AMERICA",  
+    CurrentBalance: 30000,
+    Acctype: "Current",
+    OverDraft: "Yes"
+  }
+]);
+3.db.CustomerAccount.insertMany([
+  {
+    _id: 2,  
+    Accnumber: "5678",
+    Branch: "New Bus stand",
+    BankName: "Canara",
+    IFSCCode: "5678GAYA",
+    CurrentBalance: 20000,
+    Acctype: "Saving",
+    OverDraft: "No"
+  },
+  {
+    _id: 3,  
+    Accnumber: "1029",
+    Branch: "Singnallur",
+    BankName: "Indian",
+    IFSCCode: "5678SAI",
+    CurrentBalance: 40000,
+    Acctype: "Current",
+    OverDraft: "Yes"
+  },
+  {
+    _id: 4,  
+    Accnumber: "3847",
+    Branch: "Rananathapuram",
+    BankName: "Canara",
+    IFSCCode: "5678LOKI",
+    CurrentBalance: 30000,
+    Acctype: "Saving",
+    OverDraft: "No"
+  },
+  {
+    _id: 5,  
+    Accnumber: "4738",
+    Branch: "America",
+    BankName: "Indian",
+    IFSCCode: "5678AMERICA",  
+    CurrentBalance: 30000,
+    Acctype: "Current",
+    OverDraft: "Yes"
+  }
+]);
+4.db.CustomerPersonal.insertOne({
+  _id: ,
+  Accnumber: "1234",
+  Branch: "Sulur",
+  BankName: "Canara",
+  IFSCCode: "1234GAYA",
+  CurrentBalance: 100000,
+  Acctype: "Saving",
+  OverDraft: "Yes"
+});
+5.db.CustomerAccount.insertOne({
+  _id: 1,
+  Accnumber: "1234",
+  Branch: "Sulur",
+  BankName: "Canara",
+  IFSCCode: "1234DHARSH",
+  CurrentBalance: 100000,
+  Acctype: "Saving",
+  OverDraft: "Yes"
+});
+5.db.CustomerAccount.aggregate([{$lookup:{from:'CustomerPersonal',
+localField:'Branch',foreignField:'Address'
+,as:'CustomerPersonal'}}])
+db.CustomerAccount.aggregate([{$lookup:{from:'CustomerPersonal',
+localField:'Address',foreignField:'Address'
+,as:'CustomerPersonal'}}])
+
+6.b.CustomerPersonal.insertMany([
+  {
+    _id: 2,
+    name: "Gaya",
+    Address: "Tirupur",
+    Age: 20,
+     PhoneNumber:{
+       one :123456789,
+       two :98746799753,
+
+   }
+ ])
+7.query 4:
+
+db.CustomerAccount.aggregate([
+  {
+    $match: {
+      Acctype: "Savings"
+    }
+  },
+  {
+    $lookup: {
+      from: "CustomerPersonal",
+      localField: "_id",
+      foreignField: "_id",
+      as: "personal_details"
+    }
+  },
+  {
+    $project: {
+      "personal_details._id": 1,
+      "personal_details.name": 1,
+      "personal_details.Address": 1,
+      "personal_details.PhoneNumber": 2,
+      "personal_details.Age": 2
+    }
+  }
+])
+8.
+db.CustomerPersonal.aggregate([
+  {
+    $lookup: {
+      from: "CustomerAccount",
+      localField: "_id",
+      foreignField: "_id",
+      as: "account_details"
+    }
+  },
+  {
+    $addFields: {
+      status: {
+        $cond: {
+          if: { $eq: [{ $arrayElemAt: ["$account_details.IFSCCode", 0] }, "123DHARSH"] },
+          then: "same",
+          else: "unique"
+        }
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 5,
+      name: 5,
+      Address: 5,
+      PhoneNuber: 5,
+      Age: 5,
+      status: 5
+    }
+  }
+])
+9.function Parent() {
+  this.message = "Hello from Parent!";
+
+  this.updateMessage = function(newMessage) {
+    document.getElementById("parentMessage").innerText = "Message from Child: " + newMessage;
+  };
+}
+
+const parent = new Parent();
+
+window.parent = parent;
+10.import React,{useReducer} from 'react'
+function reducerfunction(state,action){
+    switch(action.type){
+        case "increment":
+            return{count: state.count+1}
+            case "decrement":
+                return{count: state.count-1}
+    }
+  }
+ export const Usereducer1 = () => {
+   const[state,dispatch] =useReducer(reducerfunction,{count:55})
+  function increment(){
+    dispatch({type:"increment"})
+  }
+  function decrement(){
+    dispatch({type:"decrement"})
+  }
+  console.log(state);
+  return (
+    <div>
+       <h1>{state.count}</h1>     
+      <button onClick={increment}>Increment +</button>
+      <button onClick={decrement}>Decrement -</button>    
+  
+
+    </div>
+  )
+}
+11.import React,{useState,useReducer} from 'react'
+import { Usereducer1 } from './usereducer2'
+const App = () => {
+  return (
+    <div>
+      <Usereducer1 />
+    </div>
+  )
+}
+
+export default App
+12.import React, { useReducer } from "react";
+function reducer(state, action) {
+  switch (action.type) {
+    case "SET_COLOR":
+      return { color: action.payload }; 
+    default:
+      return state;
+  }
+}
+
+export const Usereducer4 = () => {
+  const [state, dispatch] = useReducer(reducer, { color: "black" });
+
+ 
+  const handleInput = (e) => {
+    const input = e.target.value.toUpperCase(); 
+    const colorMap = {
+      V: "violet",
+      I: "indigo",
+      B: "blue",
+      G: "green",
+      Y: "yellow",
+      O: "orange",
+      R: "red",
+    };
+
+    const color = colorMap[input] || "black"; 
+    dispatch({ type: "SET_COLOR", payload: color });
+  };
+
+  return (
+    <div>
+      <h1>
+        Color: {state.color.toUpperCase()}
+      </h1>
+      <label htmlFor="colorInput">Enter a color code (V, I, B, G, Y, O, R):</label>
+      <br />
+      <input
+        id="colorInput"
+        type="text"
+        placeholder="e.g., G for Green"
+        maxLength="1"
+        onChange={handleInput}
+      />
+    </div>
+  );
+};
+13.import React, { useReducer } from "react";
+function reducer(state, action) {
+  switch (action.type) {
+    case "SET_COLOR":
+      return { color: action.payload }; 
+    default:
+      return state;
+  }
+}
+
+export const Usereducer4 = () => {
+  const [state, dispatch] = useReducer(reducer, { color: "black" });
+
+ 
+  const handleInput = (e) => {
+    const input = e.target.value.toUpperCase(); 
+    const colorMap = {
+      V: "violet",
+      I: "indigo",
+      B: "blue",
+      G: "green",
+      Y: "yellow",
+      O: "orange",
+      R: "red",
+    };
+
+    const color = colorMap[input] || "black"; 
+    dispatch({ type: "SET_COLOR", payload: color });
+  };
+
+  return (
+    <div>
+      <h1>
+        Color: {state.color.toUpperCase()}
+      </h1>
+      <label htmlFor="colorInput">Enter a color code (V, I, B, G, Y, O, R):</label>
+      <br />
+      <input
+        id="colorInput"
+        type="text"
+        placeholder="e.g., G for Green"
+        maxLength="1"
+        onChange={handleInput}
+      />
+    </div>
+  );
+};
+13.import React from 'react'
+import Sample1 from './sample1'
+import Sample2 from './sample2'
+var pass={
+  Mypass : "Gaya123"
+}
+  var x = prompt("enter your password");
+
+ function Reduxintro2() {
+   let res;
+   if(x===pass.Mypass){
+    res=<Sample1 />
+   }
+   else{
+    res=<Sample2/>
+   }
+  return (
+
+     <div >
+
+      {res}
+    </div>
+  )
+}
+
+export default Reduxintro2
+14.import React from 'react'
+import Sample1 from './sample1'
+import Sample2 from './sample2'
+var pass={
+  Mypass : "Gaya123"
+}
+  var x = prompt("enter your password");
+
+ function Reduxintro2() {
+   let res;
+   if(x===pass.Mypass){
+    res=<Sample1 />
+   }
+   else{
+    res=<Sample2/>
+   }
+  return (
+
+     <div >
+
+      {res}
+    </div>
+  )
+}
+
+export default Reduxintro2
+15.import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNum1, setNum2, addNumbers, multiplyNumbers } from '../redux/numbersSlice';
+
+const UserForm = () => {
+  const dispatch = useDispatch();
+  const { num1, num2, sum, product } = useSelector((state) => state.numbers);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === 'num1') {
+      dispatch(setNum1(Number(value)));
+    } else if (name === 'num2') {
+      dispatch(setNum2(Number(value)));
+    }
+  };
+
+  return (
+    <div>
+      <label>Num1</label>
+      <input
+        type="number"
+        name="num1"
+        value={num1}
+        onChange={handleChange}
+      />
+      <label>Num2</label>
+      <input
+        type="number"
+        name="num2"
+        value={num2}
+        onChange={handleChange}
+      />
+      <button onClick={() => dispatch(addNumbers())}>ADD</button>
+      <button onClick={() => dispatch(multiplyNumbers())}>MULTIPLY</button>
+
+      <div>
+        <h3>Results:</h3>
+        <p>Sum: {sum}</p>
+        <p>Product: {product}</p>
+      </div>
+    </div>
+  );
+};
+
+export default UserForm;
+16.import React , {useState} from 'react'
+
+const DataComponent = () => {
+  const [message,setMessage] = useState('Hello,this is a state message')
+   return(
+    <div>
+        <h1>Data Form</h1>
+        <p>{message}</p>
+    </div>
+   )
+}
+
+export default DataComponent
+17.import React from 'react'
+import DataComponent from './DataComponent'
+
+const App = () => {
+  return (
+    <div>
+      <h1>My React App</h1>
+      <DataComponent/>
+    </div>
+  )
+}
+
+export default App
+18.const express = require('express');
+const greet = require('../src/greeting');
+const calc =require('../src/calculator');
+
+const app = express();
+const port = 3000;
+
+app.get('/',(req,res)=>{
+    res.send('Hello , Dharshini 😊! ');
+});
+app.get('/greet',(req,res)=>{
+    greet()
+    res.send('Check the server console for a greeting message ');
+});
+
+app.get('/calc',(req,res)=>{
+    calc()
+    res.send('Check the server ');
+});
+
+app.listen(port,() =>{
+    console.log(Server is running at http://localhost:${port});
+});
+19.const express = require('express');
+const greet = require('../src/greeting');
+const calc =require('../src/calculator');
+
+const app = express();
+const port = 3000;
+
+app.get('/',(req,res)=>{
+    res.send('Hello , Dharshini 😊! ');
+});
+app.get('/greet',(req,res)=>{
+    greet()
+    res.send('Check the server console for a greeting message ');
+});
+
+app.get('/calc',(req,res)=>{
+    calc()
+    res.send('Check the server ');
+});
+
+app.listen(port,() =>{
+    console.log(Server is running at http://localhost:${port});
+});
+20.{
+  "name": "nodeapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "cra-template": "1.2.0",
+    "express": "^4.21.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^4.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+21.import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { useState } from 'react';
+import './App.css'
+import { Emp1 } from './emp1';
+import Users from './Users';
+
+import Updateuser from './Updateuser';
+import Createuser from './Createuser';
+function App() {
+  const[count,setCount]=useState(0)
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Users</Link>
+            </li>
+            <li>
+              <Link to="/Createuser">Createuser</Link>
+            </li>
+            <li>
+              <Link to="/Updateuser">Updateuser</Link>
+            </li>
+            <li>
+              <Link to="/Emp1">Emp1</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Users/>} />
+          <Route path="/Createuser" element={<Createuser/>} />
+          <Route path="/Updateuser" element={<Updateuser/> } />
+          <Route path="/emp1" element={<Emp1/> } />
+        </Routes>
+      </div>
+      </Router>
+  );
+}
+
+export default App;
+22.import React,{useState} from 'react'
+import axios from 'axios';
+export const Emp1 = () => {
+    const [ID,setId] = useState('');
+    const [name,setName]=useState("");
+    const [Salary,setSalary]=useState("");
+    const [contact,setContact]=useState([]);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const payload = {
+            ID,
+            name,
+            Salary: parseFloat(Salary),
+            contact: parseInt(contact),
+        };
+        axios.post("http://localhost:4000/emp1", payload)
+            .then((response) => console.log(response))
+            .catch((err) => console.error(err));
+    };
+    
+  return (
+    <div>
+        <form  >
+        <label>Enter ID:</label>
+            <input placeholder="Enter your ID"  value={ID}  type="text" onChange={(e)=>setId(e.target.value)}/>
+            <br/>
+            <label>Enter Name:</label>
+            <input placeholder="Enter your Name"  value={name}  type="text" onChange={(e)=>setName(e.target.value)}/>
+            <br/>
+            <label>Enter salary :</label>
+            <input placeholder="Enter your Salary" value={Salary} type="number" onChange={(e)=>setSalary(e.target.value)}/>
+            <br/>
+            <label>Enter contact:</label>
+            <input placeholder="Enter your contact"  value={contact} type="array" onChange={(e)=>setContact(e.target.value)}/>
+            <br/>
+            <button type="submit" onClick={handleSubmit}>Submit</button>
+        </form>
+        <p>Name:{name}</p>
+    </div>
+  )
+}
+23.import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { useState } from 'react';
+import './App.css'
+import { Emp1 } from './emp1';
+import Users from './Users';
+
+import Updateuser from './Updateuser';
+import Createuser from './Createuser';
+function App() {
+  const[count,setCount]=useState(0)
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Users</Link>
+            </li>
+            <li>
+              <Link to="/Createuser">Createuser</Link>
+            </li>
+            <li>
+              <Link to="/Updateuser">Updateuser</Link>
+            </li>
+            <li>
+              <Link to="/Emp1">Emp1</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Users/>} />
+          <Route path="/Createuser" element={<Createuser/>} />
+          <Route path="/Updateuser" element={<Updateuser/> } />
+          <Route path="/emp1" element={<Emp1/> } />
+        </Routes>
+      </div>
+      </Router>
+  );
+}
+
+export default App;
+24.import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { useState } from 'react';
+import './App.css'
+import { Emp1 } from './emp1';
+import Users from './Users';
+
+import Updateuser from './Updateuser';
+import Createuser from './Createuser';
+function App() {
+  const[count,setCount]=useState(0)
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Users</Link>
+            </li>
+            <li>
+              <Link to="/Createuser">Createuser</Link>
+            </li>
+            <li>
+              <Link to="/Updateuser">Updateuser</Link>
+            </li>
+            <li>
+              <Link to="/Emp1">Emp1</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Users/>} />
+          <Route path="/Createuser" element={<Createuser/>} />
+          <Route path="/Updateuser" element={<Updateuser/> } />
+          <Route path="/emp1" element={<Emp1/> } />
+        </Routes>
+      </div>
+      </Router>
+  );
+}
+
+export default App;
+25.// server.js
+const express = require('express');
+const cors = require('cors');
+const mongoose=require('mongoose');
+const UserModel=require('./models/Users')
+const UserModel1=require('./models/Users')
+
+//crud is my database name
+//Users is my collection name
+mongoose.connect("mongodb://127.0.0.1:27017/crud")
+
+const app = express();
+const port = 4000;
+
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+app.post("/Createuser",(req,res)=>{
+    UserModel.create(req.body)
+    .then(Users=>res.json(Users))
+    .catch(err=>res.json(err))
+})
+app.post("/emp1",(req,res)=>{
+    UserModel1.create(req.body)
+    .then(Users1=>res.json(Users1))
+    .catch(err=>res.json(err))
+})
+app.listen(port, () => {
+  console.log(Server is running at http://localhost:${port});
+});
