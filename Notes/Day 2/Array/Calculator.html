@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <button onclick="Operations('quotient')">Quotient</button>
+    <button onclick="Operations('divide')">Divide</button>
+    <button onclick="Operations('rem')">Remainder</button>
+    <button onclick="Operations('sub')">Subtract</button>
+    <button onclick="Operations('product')">Product</button>
+    <button onclick="Operations('add')">Add</button>
+    <h2>Answer:</h2>
+    <h1 id="response"></h1>
+    <script>
+        const divide = (a, b) => (a / b).toFixed(2);
+        const quotient = (a, b) => Math.floor(a / b);  
+        const rem = (a, b) => a % b;
+        const sub = (a, b) => a - b;
+        const product = (a, b) => a * b;
+        const add = (a, b) => a + b;
+        function Operations(operation) {
+            const num1 = parseFloat(prompt("Enter the first number:"));
+            const num2 = parseFloat(prompt("Enter the second number:"));
+            let result;
+            switch (operation) {
+                case 'divide':
+                    result = num2 !== 0 ? divide(num1, num2) : "Error";
+                    break;
+                case 'quotient':
+                    result = num2 !== 0 ? quotient(num1, num2) : "Error";
+                    break;
+                case 'rem':
+                    result = num2 !== 0 ? rem(num1, num2) : "Error";
+                    break;
+                case 'sub':
+                    result = sub(num1, num2);
+                    break;
+                case 'product':
+                    result = product(num1, num2);
+                    break;
+                case 'add':
+                    result = add(num1, num2);
+                    break;
+                default:
+                    result = "Invalid operation.";
+            }
+            document.getElementById("response").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
