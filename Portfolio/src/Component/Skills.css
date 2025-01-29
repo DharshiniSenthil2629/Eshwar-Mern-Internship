@@ -1,0 +1,37 @@
+/* Add the keyframes animation for rotation */
+@keyframes rotateLogo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the container */
+}
+
+.skill {
+  margin: 20px;
+  text-align: center;
+}
+
+.logo {
+  width: 40px; /* Reduced logo size */
+  height: 40px; /* Reduced logo size */
+  margin-bottom: 10px;
+  animation: rotateLogo 3s infinite linear; /* Apply the rotation animation */
+}
+
+.info h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.info p {
+  font-size: 14px;
+  color: #555; /* A lighter color for better readability */
+}

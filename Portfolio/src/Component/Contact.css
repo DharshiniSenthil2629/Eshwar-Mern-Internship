@@ -1,0 +1,212 @@
+/* Contact.css */
+
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.contact-container {
+    padding: 20px;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header .header-box {
+    display: inline-block;
+    background: linear-gradient(135deg, #e3f2fd, #ffffff); /* Same gradient as 'about-me' button */
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 1.5s ease-out;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    animation: textReveal 1.5s ease-out;
+}
+
+/* Underline effect for the title */
+.header h1::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff5733, #33c1ff); /* Gradient for underline */
+    bottom: -5px;
+    left: 0;
+    border-radius: 10px;
+    animation: underlinePulse 2s infinite ease-in-out;
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-top: 20px;
+    animation: fadeInText 1s ease-out;
+}
+
+/* Contact Form Section */
+#contact {
+    padding: 50px;
+    background: linear-gradient(135deg, #222222, #555555); /* Same gradient for contact background */
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 60px auto;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 1.5s ease-out, fadeIn 1s ease-out;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    animation: textReveal 1.5s ease-out;
+}
+
+/* Underline effect for the title */
+#contact h2::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff5733, #33c1ff); /* Same gradient for underline */
+    bottom: -5px;
+    left: 0;
+    border-radius: 10px;
+    animation: underlinePulse 2s infinite ease-in-out;
+}
+
+/* Form Styling */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#contact input, #contact textarea {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #333;
+    color: #fff;
+}
+
+#contact input:focus, #contact textarea:focus {
+    border-color: #ff5733;
+}
+
+#contact button {
+    background: linear-gradient(120deg, #ff5733, #030303);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: buttonBounce 1.5s ease-in-out;
+    margin-top: 30px;
+}
+
+#contact button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes textReveal {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes underlinePulse {
+    0%, 100% {
+        width: 60%;
+    }
+    50% {
+        width: 100%;
+    }
+}
+
+@keyframes buttonBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    #contact h2 {
+        font-size: 2rem;
+    }
+
+    #contact input, #contact textarea {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    #contact button {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+    }
+}

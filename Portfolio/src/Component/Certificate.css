@@ -1,0 +1,158 @@
+/* Certificate Section */
+#certificate {
+  padding: 50px;
+  background: linear-gradient(135deg, #222222, #555555); /* Same gradient as contact */
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  margin: 60px auto;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 1.5s ease-out, fadeIn 1s ease-out; /* Combined slide-up and fade-in animation */
+}
+
+/* Title Styling */
+#certificate h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+  animation: textReveal 1.5s ease-out; /* Text reveal animation */
+}
+
+/* Underline effect for the title */
+#certificate h2::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ff5733, #33c1ff); /* Same gradient for underline */
+  bottom: -5px;
+  left: 0;
+  border-radius: 10px;
+  animation: underlinePulse 2s infinite ease-in-out; /* Pulse effect for underline */
+}
+
+/* List Styling */
+#certificate ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  animation: fadeInText 1s ease-out; /* Fade-in animation for text */
+}
+
+#certificate ul li {
+  font-size: 1.2rem;
+  color: white;
+  margin: 15px 0;
+  opacity: 0.9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#certificate ul li:hover {
+  transform: translateX(10px);
+  color: #ff5733; /* Color similar to contact section */
+}
+
+/* Button Styling */
+#certificate button {
+  background: linear-gradient(120deg, #ff5733, #030303); /* Same gradient as contact */
+  color: white;
+  padding: 15px 40px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  animation: buttonBounce 1.5s ease-in-out; /* Bounce effect for button */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#certificate button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes textReveal {
+  0% {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes underlinePulse {
+  0%, 100% {
+      width: 60%;
+  }
+  50% {
+      width: 100%;
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes buttonBounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #certificate {
+      padding: 30px 20px;
+  }
+
+  #certificate h2 {
+      font-size: 2rem;
+  }
+
+  #certificate ul li {
+      font-size: 1rem;
+  }
+
+  #certificate button {
+      padding: 12px 30px;
+      font-size: 1.2rem;
+  }
+}

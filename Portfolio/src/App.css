@@ -1,0 +1,102 @@
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  /* Navigation Menu */
+  nav {
+    display: flex;
+    justify-content: center; /* Align horizontally */
+    align-items: center;
+    background-color: #222;
+    padding: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #00ff88; /* Light Green for menu items */
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effects for menu items */
+  nav ul li a:hover {
+    color: #00e56b; /* Darker green when hovered */
+  }
+  
+  /* Button Styling */
+  button {
+    color: #0000ff; /* Blue for the button text color */
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect for buttons */
+  button:hover {
+    color: #0033cc; /* Darker blue when hovered */
+  }
+  
+  /* Change color on button click */
+  button:active {
+    color: #0033cc; /* Darker blue when clicked */
+  }
+  
+  /* Section Styling */
+  section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .intro {
+    margin: 50px auto;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .intro h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .intro p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    nav ul li {
+      margin: 10px 0;
+    }
+  }
+  
