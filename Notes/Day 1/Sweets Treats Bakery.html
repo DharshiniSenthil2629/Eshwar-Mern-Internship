@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Treats Bakery</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f1e3; 
+            color: #4b3832; 
+        }
+        header {
+            background-color: #ff6b6b; 
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #ffffff; 
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        header p {
+            font-style: italic;
+        }
+        header img {
+            width: 300px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+        nav {
+            background-color: #ffa502; 
+            padding: 0.5rem;
+            text-align: center;
+        }
+        nav a {
+            color: #ffffff; 
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: #4b3832; 
+        }
+        main {
+            padding: 1.5rem;
+            background-color: #ffffff; 
+            margin: 1rem auto;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        .menu-item {
+            margin-bottom: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        }
+        .menu-item img {
+            width: 200px;  
+            height: auto;
+            display: block;
+            margin: 0.5rem auto;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #4b3832; 
+            color: #ffffff; 
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        .special-offer {
+            background-color: #ff6b6b;
+            color: #ffffff;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            padding: 1rem 2rem;
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .contact-form button:hover {
+            background-color: #ffa502;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="C:\Users\Dharshu\Downloads\logo.jpg" alt="Sweet Treats Bakery Logo">
+        <h1>Sweet Treats Bakery</h1>
+        <p>Delighting taste buds since 1995</p>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about-us">About Us</a>
+        <a href="#menu">Menu</a>
+        <a href="#special-offers">Special Offers</a>
+        <a href="#contact-us">Contact Us</a>
+    </nav>
+    <main>
+        <section id="about-us">
+            <h2>About Us</h2>
+            <p>Welcome to Sweet Treats, where every bite is a taste of happiness. From classic pastries to modern baked delights, our family-run bakery has been crafting smiles for over two decades!</p>
+            <p>Our mission is to bring joy to every customer through delicious, handcrafted sweets made with the finest ingredients. We are committed to quality and flavor, offering a range of treats that are perfect for any occasion.</p>
+        </section>
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="menu-item">
+                <h3>Chocolate Fudge Cake</h3>
+                <img src="C:\Users\Dharshu\Downloads\1.jpg" alt="Chocolate Fudge Cake">
+                <p>A rich, moist chocolate cake topped with creamy chocolate ganache.</p>
+                <p> Perfect for celebrations or an everyday treat, our Chocolate Fudge Cake has been a fan favorite since the beginning!</p>
+            </div>
+            <div class="menu-item">
+                <h3>Blueberry Muffins</h3>
+                <img src="C:\Users\Dharshu\Downloads\jordan_marsh_blueberry_muffin1.jpg" alt="Blueberry Muffins">
+                <p>Freshly baked muffins bursting with juicy blueberries.</p>
+                <p>Our Blueberry Muffins are made with the finest fresh blueberries and baked to golden perfection. </p>
+            </div>
+            <div class="menu-item">
+                <h3>Classic Sourdough Bread</h3>
+                <img src="C:\Users\Dharshu\Downloads\3.jpg" alt="Classic Sourdough Bread">
+                <p>Perfectly crusty on the outside and soft on the inside.</p>
+                <p>Our Sourdough is made with love and patience, allowing the dough to ferment naturally. </p>            
+            </div>
+            <div class="menu-item">
+                <h3>Red Velvet Cupcakes</h3>
+                <img src="C:\Users\Dharshu\Downloads\red velvet.jpg" alt="Red Velvet Cupcakes">
+                <p>Delightful cupcakes with a smooth red velvet texture, topped with cream cheese frosting.</p>
+                <p>Our Red Velvet Cupcakes are a perfect combination of flavor and beauty. With a rich velvet taste and velvety cream cheese frosting, these are ideal for any occasion.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Cinnamon Rolls</h3>
+                <img src="C:\Users\Dharshu\Downloads\cinnamon.jpg" alt="Cinnamon Rolls">
+                <p>Soft, gooey rolls filled with cinnamon sugar and topped with creamy icing.</p>
+                <p>Freshly baked and irresistibly soft, our Cinnamon Rolls are filled with a spiced cinnamon sugar mixture and topped with a sweet glaze that will melt in your mouth.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Lemon Tart</h3>
+                <img src="C:\Users\Dharshu\Downloads\lemon tart.jpg" alt="Lemon Tart">
+                <p>A zesty lemon filling in a crisp, buttery crust, perfect for a refreshing treat.</p>
+                <p>The perfect balance of tangy and sweet, our Lemon Tart is made with fresh lemons, bringing a refreshing burst of citrus in every bite.</p>
+            </div>
+        </section>
+        <section id="special-offers">
+            <h2>Special Offers</h2>
+            <div class="special-offer">
+                <p>Get 10% off your first order when you subscribe to our newsletter!</p>
+            </div>
+            <div class="special-offer">
+                <p>Buy one, get one free on all cupcakes every Wednesday!</p>
+            </div>
+        </section>
+        <section id="contact-us">
+            <h2>Contact Us</h2>
+            <form class="contact-form" action="#">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Sweet Treats Bakery | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+<script>
+function candySharing(candies) {
+    return [candies / 2 + (candies / 4), candies / 4]; 
+}
+
+let totalCandies = 75;
+let [samCandies, angelCandies] = candySharing(totalCandies);
+console.log(`Sam has ${samCandies} candies.`);
+console.log(`Angel has ${angelCandies} candies.`);
+</script>
+</body>
+</html>
