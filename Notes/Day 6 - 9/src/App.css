@@ -1,0 +1,160 @@
+/* General Styling */
+body {
+  background-color: #f0f6f3;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for entire app */
+.App {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styling */
+.App-header {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 40px;
+  border-bottom: 2px solid #eee;
+}
+
+/* Profile Image Styling */
+.profile-img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Heading Styling */
+h1 {
+  font-size: 36px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Section Styling */
+section {
+  margin: 40px 0;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+}
+
+h2 {
+  font-size: 28px;
+  color: #2575fc;
+  margin-bottom: 20px;
+}
+
+/* List Styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  font-size: 18px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Button Styling */
+button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #090a0a;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #4fa3e3;
+  transform: translateY(-3px);
+}
+
+/* Contact Button Styling */
+.contact-btn {
+  padding: 12px 24px;
+  background-color: #2575fc;
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #1d62a3;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App-header {
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  button, .contact-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
